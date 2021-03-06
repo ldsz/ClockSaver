@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="LOADING">… Chargement …</string>
+    <string name="UI_Clock">Horloge</string>
+    <string name="UI_Clock_Size">Taille :</string>
+    <string name="UI_NP">Lecture en cours</string>
+    <string name="UI_NP_add">Afficher les informations sur la chanson</string>
+    <string name="UI_NP_add_cover">Afficher la pochette</string>
+    <string name="UI_Media">Artiste - Titre</string>
+    <string name="UI_Date">Date</string>
+    <string name="UI_Label">ClockSaver Configuration</string>
+    <string name="UI_Cover_Desc">Pochette</string>
+    <string name="UI_Settings">Configuration</string>
+    <string name="Notification_Text_1">"L'application à besoin du privilège \"Accès aux notifications\" pour afficher la lecture en cours. "</string>
+    <string name="Notification_Text_2">Merci de vous rendre dans Paramètres / Applications / Accès spécifique au applications / Accès aux notifcations</string>
+</resources>

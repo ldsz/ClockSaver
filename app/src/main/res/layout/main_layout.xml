@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:visibility="visible"
+    android:background="#000"
+    tools:visibility="visible">
+
+    <FrameLayout
+        android:id="@+id/MainFrame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:visibility="invisible">
+
+        <TextClock
+            android:id="@+id/textClock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/fyodor_bold"
+            android:textColor="#AAA"
+            android:textSize="45sp"
+            android:text="@string/UI_Time"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textL1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="0dp"
+            android:text="@string/LOADING"
+            android:textColor="#AAA"
+            android:textSize="12sp"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textL2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="70dp"
+            android:layout_marginStart="0dp"
+            android:text="@string/LOADING"
+            android:textColor="#AAA"
+            android:textSize="12sp"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/ImgCover"
+            android:layout_gravity="start"
+            android:contentDescription="@string/UI_Cover_Desc"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="0dp"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/ic_clock_foreground" />
+
+
+    </FrameLayout>
+
+</RelativeLayout>

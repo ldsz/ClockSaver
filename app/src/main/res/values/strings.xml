@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name" translatable="false">ClockSaver</string>
+    <string name="clock_default" translatable="false">CLOCK</string>
+    <string name="Default_Text" translatable="false">…</string>
+    <string name="title_activity_main" translatable="false">Leanback Title</string>
+
+    <!-- Message -->
+    <string name="LOADING">… LOADING …</string>
+    <string name="NP_info" translatable="false">%1$s - %2$s</string>
+
+    <!-- Interface -->
+    <string name="UI_Time" translatable="false">13:37</string>
+    <string name="UI_Clock">Clock</string>
+    <string name="UI_Clock_Size">Clock size :</string>
+    <string name="UI_NP">Now Playing</string>
+    <string name="UI_NP_add">Add Now Playing Information</string>
+    <string name="UI_NP_add_cover">Display cover</string>
+    <string name="UI_Date">Date</string>
+    <string name="UI_Media">Artist - Song</string>
+    <string name="UI_Label">ClockSaver Settings</string>
+    <string name="UI_Cover_Desc">Cover</string>
+    <string name="UI_Settings">Settings</string>
+
+    <!-- Error messages -->
+    <string name="error_fragment_message" translatable="false">An error occurred</string>
+    <string name="dismiss_error" translatable="false">Dismiss</string>
+
+    <!-- CUSTOM -->
+    <string name="Pref_File_Key" translatable="false">PREFERENCE_FILE_KEY</string>
+    <string name="Version" translatable="false">0.2.13</string>
+
+    <!-- SETTINGS -->
+    <string name="PREF_KEY" translatable="false">My_Settings_Key</string>
+    <string name="save_NowPlaying" translatable="false">NOW_PLAYING</string>
+    <string name="save_Cover" translatable="false">COVER</string>
+    <string name="save_Size" translatable="false">SIZE</string>
+    <string name="Notification_Text_1">You need to allow notification access for ClockSaver.</string>
+    <string name="Notification_Text_2">Please go to Settings / Apps / Special app access / Notification access</string>
+</resources>

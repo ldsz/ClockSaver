@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:visibility="visible"
+    tools:visibility="visible">
+
+    <FrameLayout
+        android:id="@+id/TitleFrame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:visibility="visible">
+        <TextView
+            android:id="@+id/Title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fyodor_bold"
+            android:textColor="@color/lb_tv_white"
+            android:textSize="45sp"
+            android:layout_marginTop="0dp"
+            android:text="@string/app_name"
+            tools:visibility="visible" />
+        <TextView
+            android:id="@+id/Title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fyodor_bold"
+            android:textColor="@color/lb_tv_white"
+            android:textSize="30sp"
+            android:layout_marginTop="14dp"
+            android:layout_marginStart="250dp"
+            android:text="@string/UI_Settings"
+            tools:visibility="visible" />
+    </FrameLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/Card_Clock"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="100dp"
+        app:cardCornerRadius="4dp"
+        android:visibility="visible">
+        <TextView
+            android:id="@+id/t_Clock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/fyodor_bold"
+            android:textColor="@color/lb_tv_white"
+            android:textSize="25sp"
+            android:text="@string/UI_Clock"
+            android:visibility="visible" />
+        <TextView
+            android:id="@+id/t_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/UI_Clock_Size"
+            android:visibility="visible" />
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_marginTop="50dp"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:min="35"
+            android:max="55"
+            android:progress="45"
+            android:onClick="onSeekBarClicked"/>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/Card_NP"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="300dp"
+        app:cardCornerRadius="4dp"
+        android:visibility="visible">
+        <TextView
+            android:id="@+id/t_NP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/fyodor_bold"
+            android:textColor="@color/lb_tv_white"
+            android:textSize="25sp"
+            android:text="@string/UI_NP"
+            android:visibility="visible" />
+        <CheckBox
+            android:id="@+id/cb_NP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:checked="true"
+            android:onClick="onCheckboxClicked"
+            android:text="@string/UI_NP_add" />
+
+        <CheckBox
+            android:id="@+id/cb_Cover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:checked="false"
+            android:onClick="onCheckboxClicked"
+            android:text="@string/UI_NP_add_cover" />
+    </androidx.cardview.widget.CardView>
+
+    <FrameLayout
+        android:id="@+id/FrameNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="450dp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/textN1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Notification_Text_1"
+            app:drawableStartCompat="@mipmap/baseline_warning_black_18dp" />
+        <TextView
+            android:id="@+id/textN2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/Notification_Text_2"
+            app:drawableStartCompat="@mipmap/baseline_warning_black_18dp" />
+
+    </FrameLayout>
+
+    <!-- Example -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/Card_Preview"
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="500dp"
+        android:layout_marginTop="100dp"
+        app:cardCornerRadius="4dp"
+        android:visibility="visible">
+
+
+
+            <TextClock
+                android:id="@+id/textClock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/fyodor_bold"
+                android:textColor="@color/lb_tv_white"
+                android:textSize="45sp"
+                android:text="@string/UI_Time"
+                android:visibility="visible" />
+            <TextView
+                android:id="@+id/textL1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:text="@string/UI_Date"
+                android:textColor="@color/lb_tv_white"
+                android:textSize="12sp"
+                tools:visibility="visible" />
+            <TextView
+                android:id="@+id/textL2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="70dp"
+                android:text="@string/UI_Media"
+                android:textColor="@color/lb_tv_white"
+                android:textSize="12sp"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/ImgCover"
+                android:contentDescription="@string/UI_Cover_Desc"
+                android:layout_gravity="start"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="0dp"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/cover" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <FrameLayout
+        android:id="@+id/FrameAbout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="925dp"
+        android:layout_marginTop="525dp"
+        android:visibility="visible">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fyodor_bold_condensed"
+            android:text="@string/Version"/>
+    </FrameLayout>
+
+</RelativeLayout>
+
