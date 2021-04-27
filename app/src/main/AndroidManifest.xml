@@ -14,15 +14,15 @@
         android:fullBackupContent="@xml/my_backup_rules"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_clock_round"
-        android:banner="@mipmap/banner"
+        android:banner="@drawable/banner_main"
         android:icon="@mipmap/ic_clock"
-        android:logo="@mipmap/banner"
         android:theme="@style/AppTheme" >
 
         <!-- Settings Application -->
         <activity
             android:name=".MainActivity"
             android:label="@string/UI_Label"
+            android:banner="@drawable/banner_settings"
             >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
