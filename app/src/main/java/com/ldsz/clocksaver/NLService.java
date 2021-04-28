@@ -57,6 +57,18 @@ public class NLService extends NotificationListenerService {
     @Override
     public void onNotificationRemoved(StatusBarNotification sbn) {
         Log.i(TAG, "Notification removed");
+        if(sbn.getTag() != null) {
+            if (sbn.getTag().equals("Notification.NowPlaying")) {
+                Log.i(TAG, "Notification NowPlaying removed");
+
+                //Send to ServiceSaver
+                Intent sender = new Intent(ServiceSaver.CS_MSG_1);
+                sender.putExtra("title", "Removed");
+                sender.putExtra("artist", "Removed");
+                sender.putExtra("cover", "Removed");
+                sendBroadcast(sender);
+            }
+        }
         super.onNotificationRemoved(sbn);
     }
 }

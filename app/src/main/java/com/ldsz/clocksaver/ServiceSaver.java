@@ -50,6 +50,7 @@ public class ServiceSaver extends DreamService {
     private Bitmap Media_Cover;
     private boolean np = false;
     private boolean co = false;
+    boolean NowPlaying_Found = false;
     public SharedPreferences sharedPref;
 
     private final Runnable RunTheMove = new Runnable() {
@@ -67,7 +68,6 @@ public class ServiceSaver extends DreamService {
     @Override
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        boolean NowPlaying_Found = false;
 
         Log.i(TAG, "Starting the Clock");
 
@@ -158,15 +158,16 @@ public class ServiceSaver extends DreamService {
         SR = new ServiceReceiver();
         registerReceiver(SR, new IntentFilter(CS_MSG_1));
 
+        //Move it
+        MoveClock();
+
         // START TIMER
-        if(!np || !co ) {
+        if (!NowPlaying_Found) {
             if(VERBOSE) Log.i(TAG, "Starting Handler");
             myHandler = new Handler(Looper.getMainLooper());
             myHandler.postDelayed(RunTheMove, 1000);
         }
-        else {
-            MoveClock();
-        }
+
     }
 
     // Data receiver from NL Service
@@ -174,7 +175,11 @@ public class ServiceSaver extends DreamService {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (!intent.getExtras().getString("title").equals(Media_Title)) {
+            // Define variable
+            TextView t2 = findViewById(R.id.textL2);
+            ImageView i = findViewById(R.id.ImgCover);
+
+            if (!intent.getExtras().getString("title").equals(Media_Title) && !(intent.getExtras().getString("cover") instanceof String)) {
                 if (VERBOSE) Log.i(TAG, "Update Media info." + Media_Title + "-" + Media_Artist);
                 Media_Title = intent.getExtras().getString("title");
                 Media_Artist = intent.getExtras().getString("artist");
@@ -183,6 +188,31 @@ public class ServiceSaver extends DreamService {
                 if (Media_Artist != null || Media_Title != null) {
                     MoveClock();
                 }
+
+                if(!NowPlaying_Found) {
+                    // Now Playing exist, make it visible
+                    if(sharedPref.getBoolean(getResources().getString(R.string.save_NowPlaying), false) & NowPlaying_Found) {
+                        np = true;
+                        t2.setVisibility(View.VISIBLE);
+                    }
+                    if(sharedPref.getBoolean(getResources().getString(R.string.save_Cover), false) & NowPlaying_Found) {
+                        co = true;
+                        i.setVisibility(View.VISIBLE);
+                    }
+                    setPosition(true, true);
+                    NowPlaying_Found = true;
+                }
+            }
+            if(intent.getExtras().getString("cover") instanceof String) {
+                if (VERBOSE) Log.i(TAG, "Notification removed");
+
+                // Now Playing Null, make it invisible
+                t2.setVisibility(View.INVISIBLE);
+                i.setVisibility(View.INVISIBLE);
+
+                setPosition(false, false);
+
+                NowPlaying_Found = false;
             }
         }
     }
