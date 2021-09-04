@@ -38,7 +38,6 @@
             android:permission="android.permission.BIND_DREAM_SERVICE">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <action android:name="android.service.dreams.DreamService" />
             </intent-filter>
 

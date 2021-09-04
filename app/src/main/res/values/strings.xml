@@ -27,7 +27,7 @@
 
     <!-- CUSTOM -->
     <string name="Pref_File_Key" translatable="false">PREFERENCE_FILE_KEY</string>
-    <string name="Version" translatable="false">0.2.17</string>
+    <string name="Version" translatable="false">0.2.18</string>
 
     <!-- SETTINGS -->
     <string name="PREF_KEY" translatable="false">My_Settings_Key</string>

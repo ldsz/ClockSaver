@@ -63,7 +63,7 @@ public class NLService extends NotificationListenerService {
 
                 //Send to ServiceSaver
                 Intent sender = new Intent(ServiceSaver.CS_MSG_1);
-                sender.putExtra("title", "Removed");
+                sender.putExtra("title", "Notification_is_Removed_");
                 sender.putExtra("artist", "Removed");
                 sender.putExtra("cover", "Removed");
                 sendBroadcast(sender);

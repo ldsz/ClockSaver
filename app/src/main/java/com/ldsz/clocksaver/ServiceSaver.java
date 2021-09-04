@@ -56,8 +56,10 @@ public class ServiceSaver extends DreamService {
     private final Runnable RunTheMove = new Runnable() {
         @Override
         public void run() {
-            MoveClock();
-            myHandler.postDelayed(this,100*60*5);
+            if(!NowPlaying_Found) {
+                MoveClock();
+            }
+            myHandler.postDelayed(this,1000*60*5);
         }
     };
 
@@ -158,16 +160,13 @@ public class ServiceSaver extends DreamService {
         SR = new ServiceReceiver();
         registerReceiver(SR, new IntentFilter(CS_MSG_1));
 
-        //Move it
-        MoveClock();
-
         // START TIMER
-        if (!NowPlaying_Found) {
-            if(VERBOSE) Log.i(TAG, "Starting Handler");
-            myHandler = new Handler(Looper.getMainLooper());
-            myHandler.postDelayed(RunTheMove, 1000);
-        }
+        if(VERBOSE) Log.i(TAG, "Starting Handler");
+        myHandler = new Handler(Looper.getMainLooper());
+        myHandler.postDelayed(RunTheMove, 1000);
 
+        //Display the Clock
+        MoveClock();
     }
 
     // Data receiver from NL Service
@@ -179,16 +178,7 @@ public class ServiceSaver extends DreamService {
             TextView t2 = findViewById(R.id.textL2);
             ImageView i = findViewById(R.id.ImgCover);
 
-            if (!intent.getExtras().getString("title").equals(Media_Title) && !(intent.getExtras().getString("cover") instanceof String)) {
-                if (VERBOSE) Log.i(TAG, "Update Media info." + Media_Title + "-" + Media_Artist);
-                Media_Title = intent.getExtras().getString("title");
-                Media_Artist = intent.getExtras().getString("artist");
-                byte[] A = intent.getExtras().getByteArray("cover");
-                Media_Cover = BitmapFactory.decodeByteArray(A, 0, A.length);
-                if (Media_Artist != null || Media_Title != null) {
-                    MoveClock();
-                }
-
+            if (!intent.getExtras().getString("title").equals(Media_Title) && !intent.getExtras().getString("title").equals("Notification_is_Removed_")) {
                 if(!NowPlaying_Found) {
                     // Now Playing exist, make it visible
                     if(sharedPref.getBoolean(getResources().getString(R.string.save_NowPlaying), false) & NowPlaying_Found) {
@@ -201,9 +191,18 @@ public class ServiceSaver extends DreamService {
                     }
                     setPosition(true, true);
                     NowPlaying_Found = true;
+                  }
+
+                if (VERBOSE) Log.i(TAG, "Update Media info." + Media_Title + "-" + Media_Artist);
+                Media_Title = intent.getExtras().getString("title");
+                Media_Artist = intent.getExtras().getString("artist");
+                byte[] A = intent.getExtras().getByteArray("cover");
+                Media_Cover = BitmapFactory.decodeByteArray(A, 0, A.length);
+                if (Media_Artist != null || Media_Title != null) {
+                    MoveClock();
                 }
             }
-            if(intent.getExtras().getString("cover") instanceof String) {
+            if(intent.getExtras().getString("title").equals("Notification_is_Removed_")) {
                 if (VERBOSE) Log.i(TAG, "Notification removed");
 
                 // Now Playing Null, make it invisible
@@ -282,10 +281,9 @@ public class ServiceSaver extends DreamService {
 
 
         Random random = new Random();
-        //f.refreshDrawableState();
-        int randomX = random.nextInt(screenWidth - f.getWidth());
-        int randomY = random.nextInt(screenHeight - f.getHeight());
-
+        f.refreshDrawableState();
+        int randomX = random.nextInt(screenWidth - (f.getWidth() + 20));
+        int randomY = random.nextInt(screenHeight - (f.getHeight() + 60));
 
         //ANIMATION
         ObjectAnimator fadeIn = ObjectAnimator.ofFloat(f, "alpha", 0, 1f);
