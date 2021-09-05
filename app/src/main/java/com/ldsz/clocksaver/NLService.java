@@ -12,7 +12,7 @@ import java.io.ByteArrayOutputStream;
 public class NLService extends NotificationListenerService {
     private static final String TAG = "NSClockSaver";
     static NLService _this;
-    private static final boolean VERBOSE = true;
+    private static final boolean VERBOSE = false;
 
     public static NLService get() {
         return _this;

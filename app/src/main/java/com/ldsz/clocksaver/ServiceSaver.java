@@ -43,7 +43,7 @@ public class ServiceSaver extends DreamService {
     private Handler myHandler;
     private final String TAG = "ClockSaver";
     public static String CS_MSG_1 = "CS_MSG_1";
-    private static final boolean VERBOSE = true;
+    private static final boolean VERBOSE = false;
     private ServiceReceiver SR;
     private String Media_Title;
     private String Media_Artist;
